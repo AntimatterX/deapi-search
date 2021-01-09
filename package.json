@@ -12,6 +12,9 @@
   "homepage": "https://github.com/AntimatterX/deapi-search",
   "author": "AntimatterX",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AntimatterX/deapi-search/issues"
+  },
   "dependencies": {
     "cheerio-httpcli": "^0.8.1"
   },

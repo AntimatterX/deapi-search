@@ -9,12 +9,19 @@
   "scripts": {
     "test": "mocha"
   },
-  "homepage": "https://github.com/AntimatterX/deapi-search",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntimatterX/deapi-search.git"
+  },
+  "keyword": {
+    "search"
+  },
   "author": "AntimatterX",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/AntimatterX/deapi-search/issues"
   },
+  "homepage": "https://github.com/AntimatterX/deapi-search",
   "dependencies": {
     "cheerio-httpcli": "^0.8.1"
   },

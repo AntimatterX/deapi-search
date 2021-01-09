@@ -13,9 +13,9 @@
     "type": "git",
     "url": "git+https://github.com/AntimatterX/deapi-search.git"
   },
-  "keyword": {
+  "keywords": [
     "search"
-  },
+  ],
   "author": "AntimatterX",
   "license": "MIT",
   "bugs": {

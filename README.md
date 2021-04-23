@@ -14,12 +14,20 @@ npm install deapi-search
 This library is a function.
 
 ``` js
-var deapisearch = require("deapi-search");
-// test code
-deapisearch(function(results) { /* Your code */ }, "search keyword", { // options
-	category: "all", // Search categories(all, video, music, music.google, image, gif, news)
-	useGoogle: false // Whether or not to use Google when searching in the "music" category (synonymous with the music.google category).
-});
+const deapiSearch = require('deapi-search');
+
+// example code
+(async () => {
+    try {
+        const res = await deapiSearch.search({
+            query: 'Hello, World!', // search keyword
+            type: 'all' // Search categories(all, video, music, image, gif, news)
+        });
+        console.log(res);
+    } catch (e) {
+        console.error(e);
+    }
+})();
 ```
 
 

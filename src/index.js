@@ -76,7 +76,7 @@ exports.search = async options => {
             for (const i of new Array(Math.min(titles.length, hrefs.length, srcs.length)).keys()) result.push({
                 title: titles[i],
                 href: hrefs[i],
-                src: srcs[i]
+                src: srcs[i].replace(/\\u[0-9a-z]{4}/g, u => String.fromCodePoint(Number(u.replace(/^\\u/, '0x'))))
             });
             return result;
         case 'news':

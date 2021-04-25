@@ -1,6 +1,6 @@
 {
   "name": "deapi-search",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "This library is for searching the Internet.",
   "main": "./src/index.js",
   "scripts": {

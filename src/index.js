@@ -29,9 +29,9 @@ const SEARCH_URLS = {
  * @returns {Promise<SearchResults>}
  */
 exports.search = async options => {
-    if (typeof options !== 'object' || options === null) throw TypeError();
-    if (typeof options.query !== 'string') throw new TypeError();
-    if (options.query.length === 0) throw new RangeError();
+    if (typeof options !== 'object' || options === null) throw TypeError('The search option must be an object');
+    if (typeof options.query !== 'string') throw new TypeError('The search query must be a string');
+    if (options.query.length === 0) throw new RangeError('The search query must be at least one character long');
     const opts = Object.assign({}, options);
     opts.type = (typeof opts.type === 'string' ? opts.type : '').toLowerCase();
     if (!(opts.type in SEARCH_URLS)) opts.type = 'all';

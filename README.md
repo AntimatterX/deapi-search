@@ -21,21 +21,29 @@ They do not optionally specify the search query, but pass it as the first argume
 These are the same as when you use the search method with that content type as an option.
 In fact, the search method is called internally.
 
-``` js
-const deapiSearch = require('deapi-search');
+```js
+// ES Modules
+import * as deapiSearch from 'deapi-search'
+```
 
+``` js
+// CommonJS
+const deapiSearch = require('deapi-search');
+```
+
+```js
 // example code
 (async () => {
     try {
         const res = await deapiSearch.search({
             query: 'Hello, World!', // search keyword
             type: 'all' // Search categories(all, video, music, image, gif, news)
-        });
-        console.log(res);
+        })
+        console.log(res)
     } catch (e) {
-        console.error(e);
+        console.error(e)
     }
-})();
+})()
 ```
 
 

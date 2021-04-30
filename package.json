@@ -1,10 +1,14 @@
 {
   "name": "deapi-search",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "This library is for searching the Internet.",
-  "main": "./src/index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -19,7 +23,13 @@
     "url": "https://github.com/AntimatterX/deapi-search/issues"
   },
   "homepage": "https://github.com/AntimatterX/deapi-search#readme",
+  "devDependencies": {
+    "@types/user-agents": "^1.0.1",
+    "typescript": "^4.2.4"
+  },
   "dependencies": {
-    "cheerio-httpcli": "^0.8.1"
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.6",
+    "user-agents": "^1.0.638"
   }
 }

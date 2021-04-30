@@ -31,8 +31,6 @@ import * as deapiSearch from 'deapi-search'
 const deapiSearch = require('deapi-search');
 ```
 
-a
-
 ```js
 // example code
 (async () => {

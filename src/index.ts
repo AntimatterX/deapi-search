@@ -32,7 +32,7 @@ interface QueryStringParameters {
 }
 
 // func
-const unescUnicode = (str: string): string => typeof str === 'string' ? str.replace(/\\u[0-9a-z]{4}/g, u => String.fromCodePoint(Number(u.replace(/^\\u/, '0x')))) : ''
+const unescUnicode = (str: string) => typeof str === 'string' ? str.replace(/\\u[0-9a-z]{4}/g, u => String.fromCodePoint(Number(u.replace(/^\\u/, '0x')))) : ''
 
 // export
 export const search = async (options: SearchOptions): Promise<SearchResults> => {

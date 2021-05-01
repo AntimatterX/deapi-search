@@ -31,6 +31,9 @@ interface QueryStringParameters {
     news: NewsParams
 }
 
+// func
+const unescUnicode = (str: string): string => typeof str === 'string' ? str.replace(/\\u[0-9a-z]{4}/g, u => String.fromCodePoint(Number(u.replace(/^\\u/, '0x')))) : ''
+
 // export
 export const search = async (options: SearchOptions): Promise<SearchResults> => {
     // type guard
@@ -67,7 +70,7 @@ export const search = async (options: SearchOptions): Promise<SearchResults> => 
                     typeof link === 'string' && /^https?:\/\/soundcloud.com\/((mobile|\?.*|.+\/sets)?|[^\/]+)$/.test(link)) continue
                 result.push({
                     title: $(e).find('h3').text(),
-                    href: link || '',
+                    href: unescUnicode(link || ''),
                     summary: $(e).find('div > div > div > span').eq(1).text()
                 })
             }
@@ -87,18 +90,18 @@ export const search = async (options: SearchOptions): Promise<SearchResults> => 
             for (const v of (str.match(/\["https?:\/\/(?!encrypted-tbn0\.gstatic\.com\/images).+",[0-9]+,[0-9]+\]/g) || [])) srcs.push(v.replace(/^[^"]*"|"[^"]*$/g, ''))
             for (const i of new Array(Math.min(titles.length, hrefs.length, srcs.length)).keys()) result.push({
                 title: titles[i],
-                href: hrefs[i],
-                src: srcs[i].replace(/\\u[0-9a-z]{4}/g, u => String.fromCodePoint(Number(u.replace(/^\\u/, '0x'))))
+                href: unescUnicode(hrefs[i]),
+                src: unescUnicode(srcs[i])
             })
             break
         case 'news':
             for (const e of [...$('#search div[role="heading"]')]) result.push({
                 title: $(e).text(),
-                href: (() => {
+                href: unescUnicode((() => {
                     for (const p of [...$(e).parents()]) {
                         if (p.name === 'a') return $(p).attr('href')
                     }
-                })() || '',
+                })() || ''),
                 summary: $(e).parent().children('div').last().children('div').first().text()
             })
             break
